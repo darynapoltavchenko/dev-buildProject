@@ -62,7 +62,7 @@ window.addEventListener('load', () => {
         const floorInfo = document.querySelector('.build-item')
 
         const removeActiveClass = () => {
-            flats.forEach(active => {
+            floors.forEach(active => {
                 active.classList.remove('active')
             })
         }
@@ -78,12 +78,52 @@ window.addEventListener('load', () => {
             flatsSold: "5"
         }]
 
+        const renderInfo = (array) => {
+            const floorInformation = array.map(item => {
+                return (`
+                <div class="build-item badge">
+                    <div class="build-item__title">Адрес</div>
+                    <div class="info-line">${item.addres}</div>
+                </div>
+                <div class="build-item badge">
+                    <div class="build-item__title">Номер этажа</div>
+                    <div class="info-line">${item.floor}</div>
+                </div>
+                <div class="build-item badge">
+                    <div class="build-item__title">Всего квартир</div>
+                    <div class="info-line">${item.flatQuantity}</div>
+                </div>
+                <div class="build-item badge">
+                    <div class="build-item__title">Свободных квартир</div>
+                    <div class="info-line">${item.flatsFree}</div>
+                </div>
+                <div class="build-item badge">
+                    <div class="build-item__title">Акционных квартир</div>
+                    <div class="info-line">${item.flatsSale}</div>
+                </div>
+                <div class="build-item badge">
+                    <div class="build-item__title">Забронированых квартир</div>
+                    <div class="info-line">${item.flatsBook}</div>
+                </div>
+                <div class="build-item badge">
+                    <div class="build-item__title">Проданных квартир</div>
+                    <div class="info-line">${item.flatsSold}</div>
+                </div>
+                `)
+            }).join('')
+            floorInfo.innerHTML = floorInformation
+        }
+
+        renderInfo(initialValue)
+
 
 
 
         floors.forEach(floor => {
-            floor.addEventListener('click', () => {
+            floor.addEventListener('mouseover', () => {
+
                 removeActiveClass()
+                
                 floor.classList.add('active')
 
                 let thisFloor = floor.getAttribute('data-number')
