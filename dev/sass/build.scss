@@ -1,0 +1,65 @@
+.container {
+
+    .build-floors-info {
+        max-width: 500px;
+        font-weight: 600;
+
+        &__title {
+            text-align: center;
+        }
+    }
+
+    .floor-plan,
+    .build-floors-info {
+        padding: 70px 50px;
+        background-color: aliceblue;
+        margin: 24px;
+        border-radius: 20px;
+        font-size: 24px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .build-item {
+            display: flex;
+            padding: 16px;
+            margin: 12px;
+
+            &__title {
+                margin-right: 12px;
+            }
+
+            .info-line {
+                color: green;
+            }
+        }
+    }
+
+    .floor {
+        fill: #05ffff59;
+        stroke: #05FFFF;
+        stroke-width: 0;
+        fill-opacity: 0;
+        transition: 0.2s;
+        z-index: 0;
+        cursor: pointer;
+
+        &:hover {
+            fill-opacity: 1;
+            stroke-width: 3px;
+        }
+    }
+}
+
+.wrap {
+    display: flex;
+}
+
+.badge {
+    display: inline-block;
+    margin: 5px;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    box-shadow: inset -3px -3px 7px #ffffffe5, inset 3px 3px 7px rgba(8, 91, 235, 0.288) !important;
+}
