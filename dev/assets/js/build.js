@@ -1,7 +1,6 @@
 const floorArray = [{
     id: 0,
     addres: "вул. Незалежності 7",
-    floor: "1",
     flatQuantity: "16",
     flatsFree: "7",
     flatsSale: "3",
@@ -12,7 +11,6 @@ const floorArray = [{
 {
     id: 1,
     addres: "вул. Незалежності 7",
-    floor: "2",
     flatQuantity: "16",
     flatsFree: "4",
     flatsSale: "7",
@@ -23,7 +21,6 @@ const floorArray = [{
 {
     id: 2,
     addres: "вул. Незалежності 7",
-    floor: "3",
     flatQuantity: "16",
     flatsFree: "8",
     flatsSale: "1",
@@ -34,7 +31,6 @@ const floorArray = [{
 {
     id: 3,
     addres: "вул. Незалежності 7",
-    floor: "4",
     flatQuantity: "16",
     flatsFree: "3",
     flatsSale: "0",
@@ -45,7 +41,6 @@ const floorArray = [{
 {
     id: 4,
     addres: "вул. Незалежності 7",
-    floor: "5",
     flatQuantity: "6",
     flatsFree: "1",
     flatsSale: "0",
@@ -59,7 +54,7 @@ const floorArray = [{
 window.addEventListener('load', () => {
     const installFloor = () => {
         const floors = document.querySelectorAll('.floor')
-        const floorInfo = document.querySelector('.build-item')
+        const floorInfo = document.querySelector('.build-floors-info')
 
         const removeActiveClass = () => {
             floors.forEach(active => {
@@ -87,7 +82,7 @@ window.addEventListener('load', () => {
                 </div>
                 <div class="build-item badge">
                     <div class="build-item__title">Номер этажа</div>
-                    <div class="info-line">${item.floor}</div>
+                    <div class="info-line">${item.floorNumber}</div>
                 </div>
                 <div class="build-item badge">
                     <div class="build-item__title">Всего квартир</div>
@@ -123,7 +118,7 @@ window.addEventListener('load', () => {
             floor.addEventListener('mouseover', () => {
 
                 removeActiveClass()
-                
+
                 floor.classList.add('active')
 
                 let thisFloor = floor.getAttribute('data-number')
